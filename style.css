@@ -1,0 +1,313 @@
+/* Variabel CSS */
+:root {
+  --primary-color: #2980b9;
+  --primary-hover: #1f5a85;
+  --secondary-color: #2c3e50;
+  --light-gray: #f0f2f5;
+  --dark-gray: #555;
+  --border-color: #ddd;
+  --success-color: #28a745;
+  --success-hover: #218838;
+  --font-size-small: 0.9em;
+  --font-size-medium: 1em;
+  --font-size-large: 1.2em;
+  --font-size-xlarge: 2em;
+}
+
+/* Global Box-Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Mengatur font global dan background */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--light-gray);
+  margin: 0;
+  padding: 20px;
+}
+
+/* Container utama */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.header-title {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+/* Judul Tengah */
+.center-header {
+  text-align: center;
+  font-size: var(--font-size-xlarge);
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  text-decoration: underline;
+}
+
+/* Section */
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: var(--font-size-large);
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 5px;
+}
+
+/* Form Group */
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  justify-self: end;
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group select {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: var(--font-size-medium);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="time"]:focus,
+.form-group select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+/* Checkbox Group */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"],
+.checkbox-group input[type="radio"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+.checkbox-group label {
+  margin-right: 20px;
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+
+.checkbox-group input[type="text"] {
+  margin-left: 10px;
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  display: none; /* Sembunyikan secara default */
+}
+
+.checkbox-group input[type="text"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+/* Tabel */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed; /* Menetapkan layout tabel menjadi fixed */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px; /* Mengurangi padding untuk ruang lebih */
+  text-align: center;
+  word-wrap: break-word; /* Memungkinkan pemutusan kata */
+}
+
+th {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 700;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table-responsive table input[type="text"],
+.table-responsive table input[type="number"],
+.table-responsive table input[type="time"] {
+  width: 100%; /* Menetapkan lebar input menjadi 100% dari sel tabel */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.table-responsive table input[type="text"]:focus,
+.table-responsive table input[type="number"]:focus,
+.table-responsive table input[type="time"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+/* Note */
+.note {
+  font-style: italic;
+  color: #777;
+  margin-top: 20px;
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: var(--font-size-medium);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .header-title {
+      margin-bottom: 10px;
+  }
+
+  .checkbox-group {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .checkbox-group label {
+      margin-right: 0;
+      margin-bottom: 5px;
+  }
+
+  .form-group {
+      grid-template-columns: 1fr;
+  }
+
+  .form-group label {
+      justify-self: start;
+      margin-bottom: 5px;
+  }
+
+  .checkbox-group input[type="text"] {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 5px;
+  }
+
+  table, thead, tbody, th, td, tr {
+      display: block;
+  }
+
+  thead tr {
+      display: none;
+  }
+
+  tr {
+      margin-bottom: 15px;
+  }
+
+  td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+  }
+
+  td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 45%;
+      padding-left: 15px;
+      font-weight: 700;
+      text-align: left;
+  }
+
+  /* Menyesuaikan input dalam tabel responsif */
+  .table-responsive table input[type="text"],
+  .table-responsive table input[type="number"],
+  .table-responsive table input[type="time"] {
+      width: 100%;
+  }
+}
+
+/* Utility Classes */
+.mt-1 { margin-top: 10px; }
+.mb-1 { margin-bottom: 10px; }
+.mt-2 { margin-top: 20px; }
+.mb-2 { margin-bottom: 20px; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Hidden Class */
+.hidden {
+  display: none;
+}

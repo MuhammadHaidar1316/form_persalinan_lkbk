@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catatan Persalinan Rumah Sakit</title>
+    <!-- Menghubungkan dengan file style.css eksternal -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts untuk typography yang lebih baik -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-title">Lembar Partograf Bagian Belakang</div>
+            <div class="header-title">Persalinan Kala Satu</div>
+        </div>
+        <!-- Judul Tengah -->
+        <div class="center-header">CATATAN PERSALINAN</div>
+        
+        <!-- Formulir -->
+        <form action="process_form.php" method="POST">
+            <!-- Informasi Umum -->
+            <fieldset class="section">
+                <legend class="section-title">Informasi Umum</legend>
+                <div class="form-group">
+                    <label for="tanggal">Tanggal:</label>
+                    <input type="date" id="tanggal" name="tanggal" required>
+                </div>
+                <div class="form-group">
+                    <label for="penolong">Penolong Persalinan:</label>
+                    <input type="text" id="penolong" name="penolong" placeholder="Nama Penolong" required>
+                </div>
+            </fieldset>
+
+            <!-- Kala 1 -->
+            <fieldset class="section">
+                <legend class="section-title">Kala 1</legend>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="partogram" name="partogram">
+                    <label for="partogram">Partogram melewati garis waspada</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="lain-lain-kala1" name="lain_lain_kala1">
+                    <label for="lain-lain-kala1">Lain-lain, sebutkan:
+                        <input type="text" name="lain_lain_sebutkan_kala1" placeholder="Sebutkan..." class="hidden">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="hasil_kala1">Bagaimana hasilnya?</label>
+                    <input type="text" id="hasil_kala1" name="hasil_kala1" placeholder="Hasil..." required>
+                </div>
+            </fieldset>
+
+            <!-- Kala 2 -->
+            <fieldset class="section">
+                <legend class="section-title">Kala 2</legend>
+                <div class="form-group">
+                    <label for="lama_kala2">Lama Kala 2:</label>
+                    <input type="number" id="lama_kala2" name="lama_kala2" placeholder="..." required> menit.
+                </div>
+                <div class="checkbox-group">
+                    <input type="radio" id="episiotomi_tidak" name="episiotomi" value="tidak" checked>
+                    <label for="episiotomi_tidak">Tidak</label>
+                    <input type="radio" id="episiotomi_ya" name="episiotomi" value="ya">
+                    <label for="episiotomi_ya">Ya, indikasi:
+                        <input type="text" name="indikasi_episiotomi" placeholder="Indikasi..." class="hidden">
+                    </label>
+                </div>
+                <!-- Pendamping Persalinan -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="pendamping_suami" name="pendamping" value="suami">
+                    <label for="pendamping_suami">Suami</label>
+                    <input type="checkbox" id="pendamping_keluarga" name="pendamping" value="keluarga">
+                    <label for="pendamping_keluarga">Keluarga</label>
+                    <input type="checkbox" id="pendamping_teman" name="pendamping" value="teman">
+                    <label for="pendamping_teman">Teman</label>
+                    <input type="checkbox" id="pendamping_dukun" name="pendamping" value="dukun">
+                    <label for="pendamping_dukun">Dukun</label>
+                    <input type="checkbox" id="pendamping_tidak" name="pendamping" value="tidak">
+                    <label for="pendamping_tidak">Tidak Ada</label>
+                </div>
+                <!-- Gawat Janin -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="gawat_janin_miringkan" name="gawat_janin" value="miringkan">
+                    <label for="gawat_janin_miringkan">Miringkan ibu ke sisi kiri</label>
+                    <input type="checkbox" id="gawat_janin_napas" name="gawat_janin" value="napas">
+                    <label for="gawat_janin_napas">Minta ibu menarik napas</label>
+                    <input type="checkbox" id="gawat_janin_episiotomi" name="gawat_janin" value="episiotomi">
+                    <label for="gawat_janin_episiotomi">Episiotomi</label>
+                </div>
+                <!-- Distosia Bahu -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="distosia_mc_robert" name="distosia_bahu" value="mc_robert">
+                    <label for="distosia_mc_robert">Manuver Mc Robert</label>
+                    <input type="checkbox" id="distosia_ibu_merangkak" name="distosia_bahu" value="ibu_merangkak">
+                    <label for="distosia_ibu_merangkak">Ibu Merangkak</label>
+                    <input type="checkbox" id="distosia_lainnya" name="distosia_bahu" value="lainnya">
+                    <label for="distosia_lainnya">Lainnya:
+                        <input type="text" name="distosia_lainnya_sebutkan" placeholder="Sebutkan..." class="hidden">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="lain_lain_kala2">Lain-lain, sebutkan:</label>
+                    <input type="text" id="lain_lain_kala2" name="lain_lain_kala2" placeholder="Sebutkan..." required>
+                </div>
+                <div class="form-group">
+                    <label for="penatalaksanaan_kala2">Penatalaksanaan yang dilakukan:</label>
+                    <input type="text" id="penatalaksanaan_kala2" name="penatalaksanaan_kala2" placeholder="Penatalaksanaan..." required>
+                </div>
+            </fieldset>
+
+            <!-- Kala 3 -->
+            <fieldset class="section">
+                <legend class="section-title">Kala 3</legend>
+                <div class="form-group">
+                    <label for="lama_kala3">Lama Kala 3:</label>
+                    <input type="number" id="lama_kala3" name="lama_kala3" placeholder="..." required> menit.
+                </div>
+                <div class="form-group">
+                    <label for="perdarahan">Jumlah Perdarahan:</label>
+                    <input type="number" id="perdarahan" name="perdarahan" placeholder="..." required> ml.
+                </div>
+                <div class="checkbox-group">
+                    <input type="radio" id="oksitosin_ya" name="oksitosin" value="ya">
+                    <label for="oksitosin_ya">Ya</label>
+                    <input type="radio" id="oksitosin_tidak" name="oksitosin" value="tidak" checked>
+                    <label for="oksitosin_tidak">Tidak, alasan:
+                        <input type="text" name="alasan_oksitosin" placeholder="Alasan..." class="hidden">
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="radio" id="ulang_oksitosin_ya" name="ulang_oksitosin" value="ya">
+                    <label for="ulang_oksitosin_ya">Ya</label>
+                    <input type="radio" id="ulang_oksitosin_tidak" name="ulang_oksitosin" value="tidak" checked>
+                    <label for="ulang_oksitosin_tidak">Tidak, alasan:
+                        <input type="text" name="alasan_ulang_oksitosin" placeholder="Alasan..." class="hidden">
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="radio" id="perengangan_tali_ya" name="perengangan_tali" value="ya">
+                    <label for="perengangan_tali_ya">Ya</label>
+                    <input type="radio" id="perengangan_tali_tidak" name="perengangan_tali" value="tidak" checked>
+                    <label for="perengangan_tali_tidak">Tidak, alasan:
+                        <input type="text" name="alasan_perengangan_tali" placeholder="Alasan..." class="hidden">
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="radio" id="masase_fundus_ya" name="masase_fundus" value="ya">
+                    <label for="masase_fundus_ya">Ya</label>
+                    <input type="radio" id="masase_fundus_tidak" name="masase_fundus" value="tidak" checked>
+                    <label for="masase_fundus_tidak">Tidak, alasan:
+                        <input type="text" name="alasan_masase_fundus" placeholder="Alasan..." class="hidden">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="laserasi_perineum_derajat">Laserasi Perineum, derajat:</label>
+                    <input type="number" id="laserasi_perineum_derajat" name="laserasi_perineum_derajat" placeholder="Derajat..." required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="laserasi_anestesi" name="laserasi_anestesi" value="ya">
+                    <label for="laserasi_anestesi">Penjahitan dengan/tanpa (*) anestesi</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="plasenta_manual" name="plasenta" value="manual">
+                    <label for="plasenta_manual">Mengeluarkan secara manual</label>
+                    <input type="checkbox" id="plasenta_merujuk" name="plasenta" value="merujuk">
+                    <label for="plasenta_merujuk">Merujuk</label>
+                    <input type="checkbox" id="plasenta_tindakan_lain" name="plasenta" value="lainnya">
+                    <label for="plasenta_tindakan_lain">Tindakan lain:
+                        <input type="text" name="plasenta_tindakan_lain_sebutkan" placeholder="Sebutkan..." class="hidden">
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="atoni_bimanual" name="atoni" value="bimanual">
+                    <label for="atoni_bimanual">Kompresi Bimanual Interna</label>
+                    <input type="checkbox" id="atoni_metil" name="atoni" value="metil">
+                    <label for="atoni_metil">Metil Ergometrin 0,2 mg IM</label>
+                    <input type="checkbox" id="atoni_oksitosin" name="atoni" value="oksitosin">
+                    <label for="atoni_oksitosin">Oksitosin Drip</label>
+                </div>
+                <div class="form-group">
+                    <label for="lain_lain_kala3">Lain-lain, sebutkan:</label>
+                    <input type="text" id="lain_lain_kala3" name="lain_lain_kala3" placeholder="Sebutkan..." required>
+                </div>
+                <div class="form-group">
+                    <label for="penatalaksanaan_kala3">Penatalaksanaan yang dilakukan:</label>
+                    <input type="text" id="penatalaksanaan_kala3" name="penatalaksanaan_kala3" placeholder="Penatalaksanaan..." required>
+                </div>
+                <div class="form-group">
+                    <label for="hasil_kala3">Bagaimana hasilnya?</label>
+                    <input type="text" id="hasil_kala3" name="hasil_kala3" placeholder="Hasil..." required>
+                </div>
+            </fieldset>
+
+            <!-- Bayi Baru Lahir -->
+            <fieldset class="section">
+                <legend class="section-title">Bayi Baru Lahir</legend>
+                <div class="form-group">
+                    <label for="berat_badan">Berat Badan:</label>
+                    <input type="number" id="berat_badan" name="berat_badan" placeholder="..." required> gram
+                </div>
+                <div class="form-group">
+                    <label for="panjang">Panjang:</label>
+                    <input type="number" id="panjang" name="panjang" placeholder="..." required> cm
+                </div>
+                <div class="form-group">
+                    <label for="jenis_kelamin">Jenis Kelamin:</label>
+                    <select id="jenis_kelamin" name="jenis_kelamin" required>
+                        <option value="">Pilih</option>
+                        <option value="P">Perempuan (P)</option>
+                        <option value="L">Laki-laki (L)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="apgar1">Nilai APGAR:</label>
+                    <input type="number" id="apgar1" name="apgar1" placeholder="..." required> / 
+                    <input type="number" id="apgar2" name="apgar2" placeholder="..." required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="radio" id="asi_ya" name="asi" value="ya">
+                    <label for="asi_ya">Ya</label>
+                    <input type="radio" id="asi_tidak" name="asi" value="tidak" checked>
+                    <label for="asi_tidak">Tidak, alasan:
+                        <input type="text" name="alasan_asi" placeholder="Alasan..." class="hidden">
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="bayi_pucat" name="bayi_status" value="mengeringkan">
+                    <label for="bayi_pucat">Mengeringkan</label>
+                    <input type="checkbox" id="bayi_biru" name="bayi_status" value="menghangatkan">
+                    <label for="bayi_biru">Menghangatkan</label>
+                    <input type="checkbox" id="bayi_lemas" name="bayi_status" value="bebaskan_jalan_nafas">
+                    <label for="bayi_lemas">Bebaskan Jalan Nafas</label>
+                    <input type="checkbox" id="bayi_stimulasi" name="bayi_status" value="stimulasi">
+                    <label for="bayi_stimulasi">Stimulasi / Rangsang Taktil</label>
+                    <input type="checkbox" id="bayi_lain" name="bayi_status" value="lainnya">
+                    <label for="bayi_lain">Lain-lain, sebutkan:
+                        <input type="text" name="bayi_lain_sebutkan" placeholder="Sebutkan..." class="hidden">
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="cacat_bawaan" name="cacat_bawaan" value="cacat_bawaan">
+                    <label for="cacat_bawaan">Cacat Bawaan, sebutkan:
+                        <input type="text" name="cacat_bawaan_sebutkan" placeholder="Sebutkan..." class="hidden">
+                    </label>
+                    <input type="checkbox" id="hipotemi" name="cacat_bawaan" value="hipotemi">
+                    <label for="hipotemi">Hipotemi</label>
+                </div>
+                <div class="form-group">
+                    <label for="penatalaksanaan_bayi">Penatalaksanaan yang dilakukan:</label>
+                    <input type="text" id="penatalaksanaan_bayi" name="penatalaksanaan_bayi" placeholder="Penatalaksanaan..." required>
+                </div>
+                <div class="form-group">
+                    <label for="hasil_bayi">Bagaimana hasilnya?</label>
+                    <input type="text" id="hasil_bayi" name="hasil_bayi" placeholder="Hasil..." required>
+                </div>
+            </fieldset>
+
+            <!-- Pemantauan Persalinan Kala 4 -->
+            <fieldset class="section">
+                <legend class="section-title">Pemantauan Persalinan Kala 4</legend>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Jam Ke</th>
+                                <th>Waktu</th>
+                                <th>Tekanan Darah (mmHg)</th>
+                                <th>Nadi (per menit)</th>
+                                <th>Suhu (°C)</th>
+                                <th>Tinggi Fundus Uteri (cm)</th>
+                                <th>Kontraksi Uterus</th>
+                                <th>Kandung Kemih</th>
+                                <th>Pendarahan (ml)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Jam Ke">1</td>
+                                <td data-label="Waktu"><input type="time" name="waktu1" required></td>
+                                <td data-label="Tekanan Darah (mmHg)"><input type="number" name="tekanan1" placeholder="mmHg" required></td>
+                                <td data-label="Nadi (per menit)"><input type="number" name="nadi1" placeholder="Nadi" required></td>
+                                <td data-label="Suhu (°C)"><input type="number" step="0.1" name="suhu1" placeholder="°C" required></td>
+                                <td data-label="Tinggi Fundus Uteri (cm)"><input type="number" name="tinggi_fundus1" placeholder="cm" required></td>
+                                <td data-label="Kontraksi Uterus"><input type="text" name="kontraksi1" placeholder="Kontraksi" required></td>
+                                <td data-label="Kandung Kemih"><input type="text" name="kandung_kemih1" placeholder="Kandung Kemih" required></td>
+                                <td data-label="Pendarahan (ml)"><input type="number" name="pendarahan1" placeholder="ml" required></td>
+                            </tr>
+                            <tr>
+                                <td data-label="Jam Ke">2</td>
+                                <td data-label="Waktu"><input type="time" name="waktu2" required></td>
+                                <td data-label="Tekanan Darah (mmHg)"><input type="number" name="tekanan2" placeholder="mmHg" required></td>
+                                <td data-label="Nadi (per menit)"><input type="number" name="nadi2" placeholder="Nadi" required></td>
+                                <td data-label="Suhu (°C)"><input type="number" step="0.1" name="suhu2" placeholder="°C" required></td>
+                                <td data-label="Tinggi Fundus Uteri (cm)"><input type="number" name="tinggi_fundus2" placeholder="cm" required></td>
+                                <td data-label="Kontraksi Uterus"><input type="text" name="kontraksi2" placeholder="Kontraksi" required></td>
+                                <td data-label="Kandung Kemih"><input type="text" name="kandung_kemih2" placeholder="Kandung Kemih" required></td>
+                                <td data-label="Pendarahan (ml)"><input type="number" name="pendarahan2" placeholder="ml" required></td>
+                            </tr>
+                            <!-- Tambahkan baris tambahan jika diperlukan -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <label for="masalah_kala4">Masalah Kala 4:</label>
+                    <input type="text" id="masalah_kala4" name="masalah_kala4" placeholder="Masalah..." required>
+                </div>
+                <div class="form-group">
+                    <label for="penatalaksanaan_kala4">Penatalaksanaan yang dilakukan:</label>
+                    <input type="text" id="penatalaksanaan_kala4" name="penatalaksanaan_kala4" placeholder="Penatalaksanaan..." required>
+                </div>
+                <div class="form-group">
+                    <label for="hasil_kala4">Bagaimana hasilnya?</label>
+                    <input type="text" id="hasil_kala4" name="hasil_kala4" placeholder="Hasil..." required>
+                </div>
+            </fieldset>
+
+            <!-- Catatan Tambahan -->
+            <div class="note">(*) Coret yang tidak perlu.</div>
+
+            <!-- Tombol Submit -->
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Simpan</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript untuk interaktivitas -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fungsi untuk menampilkan atau menyembunyikan input teks berdasarkan checkbox/radio
+            function toggleInput(checkboxId, inputSelector) {
+                const checkbox = document.getElementById(checkboxId);
+                const input = document.querySelector(inputSelector);
+
+                if (checkbox) {
+                    checkbox.addEventListener('change', function () {
+                        if (checkbox.checked) {
+                            input.classList.remove('hidden');
+                            input.required = true;
+                        } else {
+                            input.classList.add('hidden');
+                            input.value = '';
+                            input.required = false;
+                        }
+                    });
+                }
+            }
+
+            // Menampilkan input tambahan untuk "Lain-lain Kala 1"
+            toggleInput('lain-lain-kala1', 'input[name="lain_lain_sebutkan_kala1"]');
+
+            // Menampilkan input tambahan untuk episiotomi
+            const episiotomiYa = document.getElementById('episiotomi_ya');
+            const episiotomiInput = document.querySelector('input[name="indikasi_episiotomi"]');
+
+            if (episiotomiYa) {
+                episiotomiYa.addEventListener('change', function () {
+                    if (episiotomiYa.checked) {
+                        episiotomiInput.classList.remove('hidden');
+                        episiotomiInput.required = true;
+                    } else {
+                        episiotomiInput.classList.add('hidden');
+                        episiotomiInput.value = '';
+                        episiotomiInput.required = false;
+                    }
+                });
+            }
+
+            // Menampilkan input tambahan untuk distosia lainnya
+            toggleInput('distosia_lainnya', 'input[name="distosia_lainnya_sebutkan"]');
+
+            // Menampilkan input tambahan untuk plasenta tindakan lain
+            toggleInput('plasenta_tindakan_lain', 'input[name="plasenta_tindakan_lain_sebutkan"]');
+
+            // Menampilkan input tambahan untuk ASI tidak
+            const asiTidak = document.getElementById('asi_tidak');
+            const asiAlasan = document.querySelector('input[name="alasan_asi"]');
+
+            if (asiTidak) {
+                asiTidak.addEventListener('change', function () {
+                    if (asiTidak.checked) {
+                        asiAlasan.classList.remove('hidden');
+                        asiAlasan.required = true;
+                    } else {
+                        asiAlasan.classList.add('hidden');
+                        asiAlasan.value = '';
+                        asiAlasan.required = false;
+                    }
+                });
+            }
+
+            // Menampilkan input tambahan untuk Cacat Bawaan lainnya
+            const cacatBawaanCheckbox = document.getElementById('cacat_bawaan');
+            const cacatBawaanInput = document.querySelector('input[name="cacat_bawaan_sebutkan"]');
+
+            if (cacatBawaanCheckbox) {
+                cacatBawaanCheckbox.addEventListener('change', function () {
+                    if (cacatBawaanCheckbox.checked) {
+                        cacatBawaanInput.classList.remove('hidden');
+                        cacatBawaanInput.required = true;
+                    } else {
+                        cacatBawaanInput.classList.add('hidden');
+                        cacatBawaanInput.value = '';
+                        cacatBawaanInput.required = false;
+                    }
+                });
+            }
+
+            // Fungsi untuk menangani radio buttons yang memiliki input tambahan
+            function handleRadioButtons(radioName, inputSelector) {
+                const radios = document.getElementsByName(radioName);
+                const input = document.querySelector(inputSelector);
+
+                radios.forEach(radio => {
+                    radio.addEventListener('change', function () {
+                        if (this.value === 'ya') {
+                            input.classList.remove('hidden');
+                            input.required = true;
+                        } else {
+                            input.classList.add('hidden');
+                            input.value = '';
+                            input.required = false;
+                        }
+                    });
+                });
+            }
+
+            // Menangani radio buttons untuk ulang_oksitosin
+            handleRadioButtons('ulang_oksitosin', 'input[name="alasan_ulang_oksitosin"]');
+
+            // Menangani radio buttons untuk perengangan_tali
+            handleRadioButtons('perengangan_tali', 'input[name="alasan_perengangan_tali"]');
+
+            // Menangani radio buttons untuk masase_fundus
+            handleRadioButtons('masase_fundus', 'input[name="alasan_masase_fundus"]');
+
+            // Menangani form submission
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                // Validasi tambahan: minimal satu pendamping dipilih
+                const pendamping = document.getElementsByName('pendamping');
+                let pendampingChecked = false;
+                pendamping.forEach(p => {
+                    if (p.checked) pendampingChecked = true;
+                });
+                if (!pendampingChecked) {
+                    alert('Minimal satu pendamping persalinan harus dipilih.');
+                    event.preventDefault();
+                }
+
+                // Anda bisa menambahkan validasi lainnya di sini
+            });
+        });
+    </script>
+</body>
+</html>
